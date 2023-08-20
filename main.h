@@ -1,4 +1,6 @@
 #pragma once
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <iomanip>
 #include <iostream>
@@ -14,6 +16,9 @@ using namespace std;
 std::string damage_thr(int st);
 std::string damage_sw(int st);
 int check_number(int num);
+void shortcuts(
+    unsigned short* ST, unsigned short* DX, unsigned short* IQ, unsigned short* HT,
+    unsigned short* HP, unsigned short* Will, unsigned short* Per, unsigned short* FP);
 
 
 #ifdef TEXTTABLE_ENCODE_MULTIBYTE_STRINGS
@@ -197,3 +202,5 @@ inline std::ostream& operator<<(std::ostream& stream, const TextTable& table) {
 
     return stream;
 }
+
+#endif // !MAIN_H

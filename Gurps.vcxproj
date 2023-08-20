@@ -130,6 +130,7 @@
   <ItemGroup>
     <ClCompile Include="damage.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="shortcuts.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h" />
