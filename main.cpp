@@ -127,19 +127,19 @@ int main()
         }
         if (GetKeyState('P') & 0x8000)
         {
-            Per = Will = check_number(Per);
+            Per = check_number(Per);
         }
         if (GetKeyState('S') & 0x8000)
         {
             unsigned short st = ST;
-            st = Will = check_number(st);
+            st = check_number(st);
             HP = HP - (ST - st);
             ST = st;
         }
         if (GetKeyState('T') & 0x8000)
         {
             unsigned short ht = HT;
-            ht = Will = check_number(ht);
+            ht = check_number(ht);
             FP = FP - (HT - ht);
             HT = ht;
         }
@@ -151,22 +151,6 @@ int main()
 	return 0;
 }
 
-
-//int check_number(int num)
-//{
-//    cout << "Enter a value for the attribute. ";
-//    string input;
-//    getline(cin, input);
-//
-//    for (int i = 0; i < input.size(); i++)
-//    {
-//        if (!isdigit(input[i]))
-//        {
-//            return num;
-//        }
-//    }
-//    return stoi(input);
-//}
 
 int check_number(int num)
 {
@@ -183,3 +167,15 @@ int check_number(int num)
     }
     return stoi(input);
 }
+
+//int check_number(int num) {
+//    cout << "Enter a value for the attribute. ";
+//    int i = 0;
+//    std::cin.ignore();
+//    std::cin >> i;
+//    if (std::cin.fail()) {
+//        std::cin.clear();
+//        return num;
+//    }
+//    return i;
+//}
