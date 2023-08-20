@@ -152,6 +152,22 @@ int main()
 }
 
 
+//int check_number(int num)
+//{
+//    cout << "Enter a value for the attribute. ";
+//    string input;
+//    getline(cin, input);
+//
+//    for (int i = 0; i < input.size(); i++)
+//    {
+//        if (!isdigit(input[i]))
+//        {
+//            return num;
+//        }
+//    }
+//    return stoi(input);
+//}
+
 int check_number(int num)
 {
     cout << "Enter a value for the attribute. ";
