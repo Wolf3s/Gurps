@@ -36,6 +36,8 @@ std::string damage_thr(int st)
     return damage_thr.at(st);
 }
 
+//-----------------------------------------------------------------------------------------
+
 std::string damage_sw(int st)
 {
     std::map<int, std::string> damage_sw;

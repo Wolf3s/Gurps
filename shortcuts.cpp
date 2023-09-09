@@ -1,63 +1,61 @@
+#include "shortcuts.h"
 #include "main.h"
 
-
-
-void shortcuts(
-    unsigned short * ST, unsigned short * DX, unsigned short * IQ, unsigned short * HT, 
-    unsigned short * HP, unsigned short * Will, unsigned short * Per, unsigned short * FP)
+void shortcuts(Character& c)
 {
     if (GetKeyState('D') & 0x8000)
     {
-        *DX = check_number(*DX);
+        (c.DX = check_number(c.DX));
     }
     if (GetKeyState('F') & 0x8000)
     {
-        *FP = check_number(*FP);
+        c.FP = check_number(c.FP);
     }
     if (GetKeyState('H') & 0x8000)
     {
-        *HP = check_number(*HP);
+        c.HP = check_number(c.HP);
     }
     if (GetKeyState('I') & 0x8000)
     {
-        unsigned short iq = *IQ;
+        unsigned short iq = c.IQ;
         iq = check_number(iq);
-        *Will = *Will - (*IQ - iq);
-        *Per = *Per - (*IQ - iq);
-        *IQ = iq;
+        c.Will = c.Will - (c.IQ - iq);
+        c.Per = c.Per - (c.IQ - iq);
+        c.IQ = iq;
     }
     if (GetKeyState('P') & 0x8000)
     {
-        *Per = check_number(*Per);
+        c.Per = check_number(c.Per);
     }
     if (GetKeyState('S') & 0x8000)
     {
-        unsigned short st = *ST;
+        unsigned short st = c.ST;
         st = check_number(st);
-        *HP = *HP - (*ST - st);
-        *ST = st;
+        c.HP = c.HP - (c.ST - st);
+        c.ST = st;
+        c.UpdateBasicLift();
     }
     if (GetKeyState('T') & 0x8000)
     {
-        unsigned short ht = *HT;
+        unsigned short ht = c.HT;
         ht = check_number(ht);
-        *FP = *FP - (*HT - ht);
-        *HT = ht;
+        c.FP = c.FP - (c.HT - ht);
+        c.HT = ht;
     }
     if (GetKeyState('W') & 0x8000)
     {
-        *Will = check_number(*Will);
+        c.Will = check_number(c.Will);
     }
 }
 
 
-int check_number(int num)
+int check_number(unsigned short num)
 {
-    cout << "Enter a value for the attribute. ";
-    string input;
-    getline(cin, input);
+    std::cout << "Enter a value for the attribute. ";
+    std::string input;
+    getline(std::cin, input);
 
-    for (int i = 0; i < input.size(); i++)
+    for (unsigned short i = 0; i < input.size(); i++)
     {
         if (!isdigit(input[i]))
         {
